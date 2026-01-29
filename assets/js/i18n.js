@@ -285,7 +285,7 @@
     };
 
     function getSavedLang(){
-        return localStorage.getItem(STORAGE_KEY) || 'en';
+        return localStorage.getItem(STORAGE_KEY) || 'es';
     }
     function saveLang(lang){
         localStorage.setItem(STORAGE_KEY, lang);

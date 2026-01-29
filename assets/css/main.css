@@ -3585,6 +3585,24 @@ input[type=checkbox] ~ label:hover {
 .rs-contact-form .rs-contact-input textarea {
   background: transparent;
 }
+#form-messages {
+  margin-top: 14px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: #fff;
+}
+#form-messages:empty {
+  display: none;
+}
+#form-messages[data-type="sending"] {
+  background: rgba(15, 23, 42, 0.85);
+}
+#form-messages[data-type="success"] {
+  background: rgba(22, 163, 74, 0.9);
+}
+#form-messages[data-type="error"] {
+  background: rgba(220, 38, 38, 0.9);
+}
 @media (max-width: 991px) {
   .rs-contact-form {
     padding: 20px;
@@ -7638,6 +7656,9 @@ html.lenis body {
   overflow-x: clip;
   --rs-banner-one-slide-height: 680px;
 }
+.rs-banner-one .swiper {
+  height: var(--rs-banner-one-slide-height);
+}
 .rs-banner-one .rs-banner-shape {
   position: absolute;
   inset-inline-start: 0;
@@ -7713,7 +7734,7 @@ html.lenis body {
 .rs-banner-one .rs-banner-item-wrapper {
   position: relative;
   box-sizing: border-box;
-  height: var(--rs-banner-one-slide-height);
+  height: 100%;
   display: flex;
   align-items: center;
   padding: 0;
