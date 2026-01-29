@@ -1,0 +1,4 @@
+.rs-lang-switch{display:inline-flex;gap:6px;align-items:center}
+.rs-lang-switch .lang-btn{background:transparent;border:1px solid rgba(0,0,0,0.08);padding:6px 8px;border-radius:4px;color:var(--rs-black);cursor:pointer;font-weight:600}
+.rs-lang-switch .lang-btn.active{background:var(--rs-theme-orange);color:#fff;border-color:var(--rs-theme-orange)}
+.rs-lang-switch .lang-btn:focus{outline:none;box-shadow:0 0 0 3px rgba(234,85,1,0.15)}
