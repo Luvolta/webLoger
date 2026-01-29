@@ -109,6 +109,54 @@ Sidebar Toggle
         );
     });
 
+    function setBannerCarouselHeightFromSmallestImage() {
+        var banner = document.querySelector(".rs-banner-one");
+        if (!banner) return;
+
+        var imageEls = banner.querySelectorAll(".swiper .rs-banner-bg-thumb[data-background]");
+        if (!imageEls.length) return;
+
+        var urls = [];
+        Array.prototype.forEach.call(imageEls, function (el) {
+            var url = el.getAttribute("data-background");
+            if (url) urls.push(url);
+        });
+        if (!urls.length) return;
+
+        var loadImageSize = function (src) {
+            return new Promise(function (resolve) {
+                var img = new Image();
+                img.onload = function () {
+                    resolve({ width: img.naturalWidth, height: img.naturalHeight });
+                };
+                img.onerror = function () {
+                    resolve(null);
+                };
+                img.src = src;
+            });
+        };
+
+        Promise.all(urls.map(loadImageSize)).then(function (sizes) {
+            var minHeight = null;
+            sizes.forEach(function (size) {
+                if (!size || !size.height) return;
+                if (minHeight === null || size.height < minHeight) {
+                    minHeight = size.height;
+                }
+            });
+
+            if (minHeight) {
+                banner.style.setProperty("--rs-banner-one-slide-height", minHeight + "px");
+            }
+        });
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", setBannerCarouselHeightFromSmallestImage);
+    } else {
+        setBannerCarouselHeightFromSmallestImage();
+    }
+
     $("[data-width]").each(function () {
         $(this).css("width", $(this).attr("data-width"));
     });

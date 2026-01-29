@@ -7636,6 +7636,7 @@ html.lenis body {
 /*----------------------------------------*/
 .rs-banner-one {
   overflow-x: clip;
+  --rs-banner-one-slide-height: 680px;
 }
 .rs-banner-one .rs-banner-shape {
   position: absolute;
@@ -7710,28 +7711,31 @@ html.lenis body {
   z-index: -1;
 }
 .rs-banner-one .rs-banner-item-wrapper {
-  padding: 200px 0 190px 0;
+  position: relative;
+  box-sizing: border-box;
+  height: var(--rs-banner-one-slide-height);
+  display: flex;
+  align-items: center;
+  padding: 0;
 }
 @media only screen and (max-width: 1600px) {
   .rs-banner-one .rs-banner-item-wrapper {
-    padding: 150px 0 150px 0px;
     padding-inline-start: 150px;
   }
 }
 @media only screen and (max-width: 1199px) {
   .rs-banner-one .rs-banner-item-wrapper {
-    padding: 130px 0 130px 0px;
     padding-inline-start: 120px;
   }
 }
 @media only screen and (max-width: 991px) {
   .rs-banner-one .rs-banner-item-wrapper {
-    padding: 90px 0 120px 0px;
+    padding-inline-start: 0;
   }
 }
 @media only screen and (max-width: 767px) {
   .rs-banner-one .rs-banner-item-wrapper {
-    padding: 70px 0 120px 0px;
+    padding-inline-start: 0;
   }
 }
 .rs-banner-one .rs-banner-content {
